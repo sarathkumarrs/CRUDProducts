@@ -15,9 +15,10 @@ const HomePage = () => {
     setValue(event.target.value);
     data()
   };
+
   const data_filter = async () => {
     try {
-      const response = await axiosInstance.post(`/admin/payment_details`, {
+      const response = await axiosInstance.post(`filter/products/`, {
         from:from,
         end:end,
         
@@ -31,10 +32,7 @@ const HomePage = () => {
        
       }
       
-      setProducts(response.data.results)
-  
-      
-      
+      setProducts(response.data)
     } catch (err) {
       console.log(err)
     }
